@@ -3,12 +3,20 @@
 
 const gridSquares = 16;
 const container = document.querySelector('#container');
-
 const containerWidth = container.clientWidth;
-
-const squaresPerRow = gridSquares / 4;
-
+const squaresPerRow = Math.sqrt(gridSquares);
 const squareWidth = containerWidth / squaresPerRow - 2; //-2 for border
+
+const defaultColor = 'cornflowerblue';
+const selectedColor = 'grey';
+
+const resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', () => {
+  const gridSquares = document.querySelectorAll('.grid-square');
+  gridSquares.forEach((square) => {
+    square.style.backgroundColor = defaultColor;
+  });
+});
 
 console.log(`Container width: ${containerWidth}.`);
 console.log(`Square width: ${squareWidth}.`);
@@ -21,7 +29,7 @@ for (let i = 0; i < gridSquares; i++) {
   nextCell.className = 'grid-square';
   nextCell.id = 'grid-square-' + i;
 
-  nextCell.addEventListener('click', (e) => {
+  nextCell.addEventListener('mouseover', (e) => {
     changeColor(nextCell.id);
   });
 
@@ -30,5 +38,5 @@ for (let i = 0; i < gridSquares; i++) {
 
 function changeColor(gridSquare) {
   let target = document.querySelector('#' + gridSquare);
-  target.style.backgroundColor = 'red';
+  target.style.backgroundColor = selectedColor;
 }

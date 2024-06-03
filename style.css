@@ -4,6 +4,7 @@
 
 body {
   background-color: antiquewhite;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -20,4 +21,21 @@ body {
 .grid-square {
   background-color: cornflowerblue;
   border: solid white 1px;
+}
+
+.controls {
+  width: 598px;
+  /* //height: 30px; */
+  background-color: darkblue;
+  border: solid white 1px;
+  margin: 0px;
+  padding: 0px;
+  color: antiquewhite;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  height: 25px;
 }
