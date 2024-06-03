@@ -1,1 +1,18 @@
-/* Etch-A-Sketch */
+/* Etch-A-Sketch CSS
+   Author: tommaho
+*/
+
+body {
+  background-color: antiquewhite;
+}
+
+.container {
+  width: 600px;
+  height: 600px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 15px;
+  padding: 0;
+  margin: 0;
+}
