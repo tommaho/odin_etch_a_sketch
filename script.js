@@ -11,8 +11,9 @@ const defaultColor = 'cornflowerblue';
 const selectedColor = 'grey';
 
 const resetButton = document.querySelector('#reset');
+
 resetButton.addEventListener('click', () => {
-  const gridSquares = document.querySelectorAll('.grid-square');
+  const gridSquares = document.querySelectorAll('.touched');
   gridSquares.forEach((square) => {
     square.style.backgroundColor = defaultColor;
   });
@@ -39,4 +40,5 @@ for (let i = 0; i < gridSquares; i++) {
 function changeColor(gridSquare) {
   let target = document.querySelector('#' + gridSquare);
   target.style.backgroundColor = selectedColor;
+  target.classList.add('touched');
 }
