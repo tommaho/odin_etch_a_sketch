@@ -4,14 +4,13 @@
 const defaultColor = 'cornflowerblue';
 const selectedColor = 'grey';
 
-function initializeGrid(gridSquares = 16) {
-  //const gridSquares = 16;
+function initializeGrid(gridSize = 16) {
   const container = document.querySelector('#container');
   const containerWidth = container.clientWidth;
-  const squaresPerRow = Math.sqrt(gridSquares);
+  const squaresPerRow = Math.sqrt(gridSize);
   const squareWidth = containerWidth / squaresPerRow - 2; //-2 for border
 
-  for (let i = 0; i < gridSquares; i++) {
+  for (let i = 0; i < gridSize; i++) {
     let nextCell = document.createElement('div');
 
     nextCell.style.height = squareWidth + 'px';
@@ -19,14 +18,7 @@ function initializeGrid(gridSquares = 16) {
     nextCell.className = 'grid-square';
     nextCell.id = 'grid-square-' + i;
 
-    // function changeColor(gridSquare) {
-    //     let target = document.querySelector('#' + gridSquare);
-    //     target.style.backgroundColor = selectedColor;
-    //     target.classList.add('touched');
-    //   }
-
     nextCell.addEventListener('mouseover', (e) => {
-      // changeColor(nextCell.id);
       let target = document.querySelector('#' + nextCell.id);
       target.style.backgroundColor = selectedColor;
       target.classList.add('touched');
@@ -37,7 +29,6 @@ function initializeGrid(gridSquares = 16) {
 }
 
 const resetButton = document.querySelector('#reset');
-
 const newLayoutButton = document.querySelector('#new');
 
 newLayoutButton.addEventListener('click', () => {
@@ -46,7 +37,9 @@ newLayoutButton.addEventListener('click', () => {
     square.remove();
   });
 
-  initializeGrid();
+  const gridSize = prompt('Enter a grid size:', 16);
+
+  initializeGrid(gridSize);
 });
 
 resetButton.addEventListener('click', () => {
@@ -56,6 +49,3 @@ resetButton.addEventListener('click', () => {
     square.classList.remove('touched');
   });
 });
-
-// console.log(`Container width: ${containerWidth}.`);
-// console.log(`Square width: ${squareWidth}.`);
